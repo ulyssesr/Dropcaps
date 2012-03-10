@@ -1,0 +1,8 @@
+p.dropcaps:first-letter {
+font-family: Georgiam, New Times Roman, Serif;
+font-weight:bold;
+float:left;
+line-height:30px;
+font-size:36px;
+padding: 3px 3px 0 0;
+}
