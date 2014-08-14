@@ -1,20 +1,28 @@
 <?php
+
 /*
+
 Plugin Name: Dropcaps
-Plugin URI: http://ulyssesonline.com
+Plugin URI: http://uly.me
 Description: Makes the first letter of a post a dropcap.
-Version: 0.1
+Version: 0.2
 Author: Ulysses Ronquillo
-Author URI: http://ulyssesonline.com
+Author URI: http://uly.me
+
 */
 
-function dropcap_header() {
-    echo('<link rel="stylesheet" type="text/css" media="screen" href="' . get_bloginfo('wpurl') . '/wp-content/plugins/dropcaps/dropcaps.css" />');
+
+// add stylesheet to wp_head
+
+function urr_dropcaps_css_header() {
+	wp_enqueue_style( 'prefix-style', plugins_url('dropcaps.css', __FILE__) );
 }
+add_action( 'wp_enqueue_scripts', 'urr_dropcaps_css_header' );
 
-add_action('wp_head', 'dropcap_header');
 
-function dropcaps($content='') {
+// modify content. find first word. css does first-letter does all the trick.
+
+function urr_dropcaps($content='') {
     $pos = stripos($content, '<p>');
     if (($pos !== 0) || ($pos === false)) {
         return '<p class="dropcaps">' . $content . '</p>';
@@ -22,7 +30,7 @@ function dropcaps($content='') {
         return '<p class="dropcaps"' . stristr($content, '>');
     }
 }
+add_filter('the_content', 'urr_dropcaps', 7);
 
-add_filter('the_content', 'dropcaps', 7);
 
-?>
+/* end of file */
