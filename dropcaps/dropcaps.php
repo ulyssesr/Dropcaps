@@ -12,7 +12,7 @@ Author URI: http://uly.me
 */
 
 
-// add stylesheet to wp_head
+// add stylesheet to header
 
 function urr_dropcaps_css_header() {
 	wp_enqueue_style( 'prefix-style', plugins_url('dropcaps.css', __FILE__) );
@@ -20,7 +20,7 @@ function urr_dropcaps_css_header() {
 add_action( 'wp_enqueue_scripts', 'urr_dropcaps_css_header' );
 
 
-// modify content. find first word. css does first-letter does all the trick.
+// modify content. find first word. css does does all the trick using first-letter.
 
 function urr_dropcaps($content='') {
 	$pos = stripos($content, '<p>');
