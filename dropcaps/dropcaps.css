@@ -1,7 +1,7 @@
 p.dropcaps:first-letter {
-font-weight:bold;
-float:left;
-line-height:50px;
-font-size:56px;
-padding: 3px 3px 0 0;
+	font-weight:bold;
+	float:left;
+	line-height:50px;
+	font-size:56px;
+	padding: 3px 3px 0 0;
 }
